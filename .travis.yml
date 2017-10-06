@@ -19,5 +19,6 @@ before_install:
 
 #Kafka assertions
 - kafka/bin/kafka-topics.sh --list --zookeeper localhost:2181
-- kafka/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test.1 < echo "First message"
-- kafka/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test.1 < echo "Second message"
+- echo "First message" | kafka/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test.1
+- echo "Second message" | kafka/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test.1
+- kafka/bin/kafka-run-class.sh kafka.tools.SimpleConsumerShell
